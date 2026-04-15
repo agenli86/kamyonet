@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --font-heading: 'Nunito Sans', system-ui, sans-serif;
+  --font-body: 'Nunito Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth }
+body { font-family: var(--font-body); }
+
+/* ─── SLIDER ─── */
+.slider-container { position: relative; overflow: hidden; }
+.slider-track { display: flex; transition: transform 0.6s ease; }
+.slider-slide { min-width: 100%; position: relative; }
+
+/* ─── TAB ARTICLES ─── */
+.tab-btn { @apply px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 whitespace-nowrap; }
+.tab-btn.active { @apply bg-primary-600 text-white shadow-lg; }
+.tab-btn:not(.active) { @apply bg-gray-100 text-gray-600 hover:bg-gray-200; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-fadeInUp { animation: fadeInUp 0.6s ease both; }
+.animate-slideInLeft { animation: slideInLeft 0.6s ease both; }
+
+/* ─── PROSE (article content) ─── */
+.prose h2 { @apply text-2xl font-bold text-primary-700 mt-8 mb-4; }
+.prose h3 { @apply text-xl font-bold text-primary-600 mt-6 mb-3; }
+.prose p { @apply text-gray-700 leading-relaxed mb-4; }
+.prose ul { @apply list-disc pl-6 mb-4 space-y-2; }
+.prose li { @apply text-gray-700; }
+.prose a { @apply text-primary-600 underline hover:text-primary-800 transition-colors; }
+.prose strong { @apply text-gray-900; }
+
+/* ─── STICKY BUTTONS ─── */
+.sticky-buttons {
+  @apply fixed bottom-4 right-4 z-50 flex flex-col gap-3;
+}
+.sticky-btn {
+  @apply w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-110;
+}
+
+/* ─── FAQ ACCORDION ─── */
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+.faq-answer.open { max-height: 500px; }
+
+/* ─── GALLERY GRID ─── */
+.gallery-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3;
+}
+.gallery-item {
+  @apply relative overflow-hidden rounded-xl cursor-pointer;
+  aspect-ratio: 4/3;
+}
+.gallery-item img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+
+/* ─── BREADCRUMB ─── */
+.breadcrumb { @apply flex items-center gap-2 text-sm text-gray-500 flex-wrap; }
+.breadcrumb a { @apply text-primary-600 hover:text-primary-800 transition-colors; }
+.breadcrumb span.separator { @apply text-gray-400; }
