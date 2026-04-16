@@ -26,14 +26,9 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: SITE_CONFIG.name, description: SITE_CONFIG.description },
   alternates: { canonical: SITE_CONFIG.url },
   robots: { index: true, follow: true },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
-    ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
-  },
+icons: {
+  icon: '/favicon.ico',
+},
   manifest: '/site.webmanifest',
   verification: {
     // google: 'GOOGLE_VERIFICATION_CODE',
