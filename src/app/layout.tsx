@@ -26,6 +26,15 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: SITE_CONFIG.name, description: SITE_CONFIG.description },
   alternates: { canonical: SITE_CONFIG.url },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  manifest: '/site.webmanifest',
   verification: {
     // google: 'GOOGLE_VERIFICATION_CODE',
     // yandex: 'YANDEX_VERIFICATION_CODE',
@@ -37,7 +46,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="tr">
       <head>
         <meta name="theme-color" content="#0D47A1" />
-        <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
